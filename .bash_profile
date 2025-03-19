@@ -46,7 +46,6 @@ if [ -f ~/.bscripts/git-prompt ];
 then 
 	. ~/.bscripts/git-prompt
 fi
-setprompt
 if [ -f /usr/local/bin/Friend ];
 then 
 	Friend
