@@ -1,0 +1,41 @@
+#!/bin/bash
+
+mkdir Downloads
+mkdir repos
+mkdir repos/C
+mkdir repos/Java
+mkdir repos/ASM
+mkdir repos/Shell
+mkdir apps
+sudo sed -i "1ideb http://deb.debian.org/debian bookworm-backports main" /etc/apt/sources.list
+sudo apt update -y
+sudo apt upgrade -y 
+sudo apt install vim -y
+sudo apt remove vi -y
+sudo apt remove emacs -y
+sudo apt install unzip -y
+sudo apt install gcc -y
+sudo apt install neofetch -y
+sudo apt install tree -y
+sudo apt install fceux -y
+sudo apt install gedit -y
+sudo apt install mingw-w64 -y
+sudo apt install wine -y
+sudo apt install nasm -y
+sudo apt install yt-dlp/bookworm-backports -y
+sudo apt install git -y
+sudo apt install git-hub -y
+sudo apt install make -y
+sudo apt install nmap -y
+sudo apt install telnet -y
+sudo apt autoremove -y
+wget https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_linux-x64_bin.tar.gz -P ~/Downloads 
+wget https://services.gradle.org/distributions/gradle-8.13-bin.zip -P ~/Downloads
+tar xvzf Downloads/openjdk-23.0.2_linux-x64_bin.tar.gz -C ~/apps && rm Downloads/openjdk-23.0.2_linux-x64_bin.tar.gz
+unzip Downloads/gradle-8.13-bin.zip -d ~/apps && rm Downloads/gradle-8.13-bin.zip
+echo export JAVA_HOME=~/apps/openjdk-23.0.2 >> ~/.bashrc
+echo export GRADLE_HOME=~/apps/gradle-8.13 >> ~/.bashrc
+echo export PATH=\$JAVA_HOME/bin:\$GRADLE_HOME/bin:\$PATH >> ~/.bashrc
+source ~/.bashrc
+echo System is setup!
+echo System PATH is $PATH
